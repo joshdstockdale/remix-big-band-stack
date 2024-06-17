@@ -1,6 +1,6 @@
 # Remix Big Band Stack
 
-![The Remix Big Band Stack](https://github.com/joshdstockdale/remix-big-band-stack/public/hero.png)
+![The Remix Big Band Stack](https://github.com/joshdstockdale/remix-big-band-stack/blob/main/public/hero.png)
 
 Remix TypeScript with Drizzle, PostgreSQL, Docker deploy to Fly.io, shadcn/ui TailwindCSS.
 
