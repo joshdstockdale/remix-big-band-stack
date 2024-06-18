@@ -2,7 +2,7 @@ import "dotenv/config"; // make sure to install dotenv package
 export default {
   dialect: "postgresql",
   out: "./migrations",
-  schema: "./app/db",
+  schema: "./drizzle/schema.ts",
   dbCredentials: {
     url: process.env.DATABASE_URL,
   },

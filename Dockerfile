@@ -41,4 +41,4 @@ COPY --from=build /myapp/build /myapp/build
 COPY --from=build /myapp/public /myapp/public
 ADD . .
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
