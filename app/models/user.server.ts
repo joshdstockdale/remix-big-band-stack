@@ -1,8 +1,9 @@
 import bcrypt from "bcryptjs";
 import { eq } from "drizzle-orm";
 
-import { users } from "drizzle/schema";
 import { db } from "~/db.server";
+
+import { users } from "../../drizzle/schema";
 
 export type User = typeof users.$inferSelect;
 

@@ -2,11 +2,14 @@
 // Simply call this with:
 // npx ts-node -r tsconfig-paths/register ./cypress/support/delete-user.ts username@example.com
 // and that user will get deleted
+import "dotenv/config";
 
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
 import { installGlobals } from "@remix-run/node";
+import { eq } from "drizzle-orm";
 
-import { prisma } from "~/db.server";
+import { db } from "~/db.server";
+
+import { users } from "../../drizzle/schema";
 
 installGlobals();
 
@@ -19,18 +22,10 @@ async function deleteUser(email: string) {
   }
 
   try {
-    await prisma.user.delete({ where: { email } });
+    await db.delete(users).where(eq(users.email, email));
   } catch (error) {
-    if (
-      error instanceof PrismaClientKnownRequestError &&
-      error.code === "P2025"
-    ) {
-      console.log("User not found, so no need to delete");
-    } else {
-      throw error;
-    }
-  } finally {
-    await prisma.$disconnect();
+    console.log(`Error Deleting... ${error}`);
+    throw error;
   }
 }
 

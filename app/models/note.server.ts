@@ -1,8 +1,9 @@
 import { eq, and, desc } from "drizzle-orm";
 
-import { notes } from "drizzle/schema";
 import { db } from "~/db.server";
 import { User } from "~/models/user.server";
+
+import { notes } from "../../drizzle/schema";
 
 export type Note = typeof notes.$inferSelect;
 
