@@ -1,6 +1,6 @@
-# Remix Blues Stack
+# Remix Big Band Stack
 
-![The Remix Blues Stack](https://repository-images.githubusercontent.com/461012689/37d5bd8b-fa9c-4ab0-893c-f0a199d5012d)
+![The Remix Big Band Stack](https://github.com/joshdstockdale/remix-big-band-stack/blob/main/public/hero.png)
 
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
@@ -15,8 +15,8 @@ npx create-remix@latest --template remix-run/blues-stack
 - Healthcheck endpoint for [Fly backups region fallbacks](https://fly.io/docs/reference/configuration/#services-http_checks)
 - [GitHub Actions](https://github.com/features/actions) for deploy on merge to production and staging environments
 - Email/Password Authentication with [cookie-based sessions](https://remix.run/utils/sessions#creatememorysessionstorage)
-- Database ORM with [Prisma](https://prisma.io)
-- Styling with [Tailwind](https://tailwindcss.com/)
+- Database ORM with [Drizzle](https://orm.drizzle.team)
+- Styling with [Shadcn](https://ui.shadcn.com) and [Tailwind](https://tailwindcss.com/)
 - End-to-end testing with [Cypress](https://cypress.io)
 - Local third party request mocking with [MSW](https://mswjs.io)
 - Unit testing with [Vitest](https://vitest.dev) and [Testing Library](https://testing-library.com)
