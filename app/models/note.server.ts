@@ -12,10 +12,10 @@ export function getNote({
 }: Pick<Note, "id"> & {
   userId: User["id"];
 }) {
-  return db
-    .select()
-    .from(notes)
-    .where(and(eq(notes.id, id), eq(notes.userId, userId)));
+  return db.query.notes.findFirst({
+    where: (notes, { and, eq }) =>
+      and(eq(notes.id, id), eq(notes.userId, userId)),
+  });
 }
 
 export function getNoteListItems({ userId }: { userId: User["id"] }) {
@@ -33,7 +33,7 @@ export function createNote({
 }: Pick<Note, "body" | "title"> & {
   userId: User["id"];
 }) {
-  return db.insert(notes).values({ title, body, userId });
+  return db.insert(notes).values({ title, body, userId }).returning();
 }
 
 export function deleteNote({

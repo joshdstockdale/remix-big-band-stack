@@ -7,16 +7,23 @@ import { db } from "~/db.server";
 export type User = typeof users.$inferSelect;
 
 export async function getUserById(id: User["id"]) {
-  return db.select().from(users).where(eq(users.id, id));
+  return db.query.users.findFirst({
+    where: (users, { eq }) => eq(users.id, id),
+  });
 }
 
 export async function getUserByEmail(email: User["email"]) {
-  return db.select().from(users).where(eq(users.email, email));
+  return db.query.users.findFirst({
+    where: (users, { eq }) => eq(users.email, email),
+  });
 }
 
 export async function createUser(email: User["email"], password: string) {
   const hashedPassword = await bcrypt.hash(password, 10);
-  return db.insert(users).values({ email, password: hashedPassword });
+  return db
+    .insert(users)
+    .values({ email, password: hashedPassword })
+    .returning();
 }
 
 export async function deleteUserByEmail(email: User["email"]) {

@@ -1,10 +1,12 @@
 import "dotenv/config";
+
+import bcrypt from "bcryptjs";
+import { count } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/node-postgres";
+import pg from "pg";
 
 import { users, notes } from "./schema";
-import bcrypt from "bcryptjs";
-import pg from "pg";
-import { count } from "drizzle-orm";
+
 const { Pool } = pg;
 
 const connectionString = process.env.DATABASE_URL;
@@ -16,7 +18,7 @@ if (!("DATABASE_URL" in process.env))
   throw new Error("DATABASE_URL not found on .env.development");
 
 const main = async () => {
-  console.log("Seed start");
+  console.log("🥚 Seed start");
 
   const records = await db.select({ count: count() }).from(users);
   if (records.length > 0 && records[0].count === 0) {
@@ -46,7 +48,7 @@ const main = async () => {
     }
   }
 
-  console.log("Seed done");
+  console.log("🐔 Seed done");
 };
 
 main();
