@@ -88,30 +88,7 @@ This is a pretty simple note-taking app, but it's a good example of how you can 
 
 ## Deployment
 
-### Fly.io TL;DR
-
-First time
-
-- [Install Fly](https://fly.io/docs/getting-started/installing-flyctl/)
-- Sign up and log in to Fly
-
-```
-fly auth signup
-```
-
-Launch App
-
-```
-fly launch
-```
-
-Code changes after code launch
-
-```
-fly deploy
-```
-
-### Fly.io Full
+### Deploy with Fly.io
 
 This Remix Stack comes with two GitHub Actions that handle automatically deploying your app to production and staging environments.
 
